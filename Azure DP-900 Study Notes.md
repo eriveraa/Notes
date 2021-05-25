@@ -1,4 +1,20 @@
-# DP-900 Study Notes
+# Exam DP-900: Microsoft Azure Data Fundamentals
+
+# Study Notes
+
+[Exam DP-900: Microsoft Azure Data Fundamentals - Learn | Microsoft Docs](https://docs.microsoft.com/en-us/learn/certifications/exams/dp-900)
+
+
+
+## Skills measured
+
+- The content of this exam was updated on April 23, 2021. Please download the exam skills outline below to see what changed.
+- Describe core data concepts (15-20%)
+- Describe how to work with relational data on Azure (25-30%)
+- Describe how to work with non-relational data on Azure (25-30%)
+- Describe an analytics workload on Azure (25-30%)
+
+
 
 ## Core Concepts (15-20%)
 
@@ -35,8 +51,6 @@
 #### Chart Types
 
 Comparison, Change over time, Ranking, Spatial, Flow, Distribution, Correlation....
-
-
 
 ### Analytics Techniques
 
@@ -86,8 +100,6 @@ We got 5 types of analytics:
    
    - Self-driving car, understand human language, 
 
-
-
 ### ELT and ETL
 
 - E: Extract (how to get the data)
@@ -95,8 +107,6 @@ We got 5 types of analytics:
 - L: Load (getting the data into a database)
 
 - T: Transform (apply transforms and rules on data)
-
-
 
 ### Data Processing Core Concepts
 
@@ -111,8 +121,6 @@ We got 5 types of analytics:
   | Data Sources                 | Ingestion                       | Stream Processing                            | Analytical data store                            | Analytics and reporting    |
   | ---------------------------- | ------------------------------- | -------------------------------------------- | ------------------------------------------------ | -------------------------- |
   | Data sources<br>Data storage | Event Hubs<br>IOT Hub<br> Kafka | Stream analytics<br>Storm<br>Spark Streaming | SQL Data Warehouse<br>Spark SQL<br>HBase<br>Hive | Analytics, Power BI, Excel |
-  
-  
 
 ## Relational Data (25-30%)
 
@@ -190,8 +198,6 @@ We got 5 types of analytics:
   
   - Database designed for store and query large amounts of data and reporting / analytics
 
-
-
 ### Relational Data Structures
 
 #### How is data stored?
@@ -229,10 +235,6 @@ We got 5 types of analytics:
 - The data it returns is from another table
 
 - It can be a simplified view of a table or a more complex one
-
-
-
-
 
 ### Relational Query Tools
 
@@ -280,8 +282,6 @@ We got 5 types of analytics:
 
 - Columns of a table define an schema
 
-
-
 ### Structured Query Language (SQL)
 
 - DDL (Data Definition Language)
@@ -315,5 +315,3 @@ We got 5 types of analytics:
   - Most vendors are not 100% compatible with the standard
   
   - SQL Server uses T-SQL, Oracle uses PL/SQL, MySQL uses SQL/PSM, PostgreSQL uses PL/pgSQL
-
-
