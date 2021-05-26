@@ -122,6 +122,8 @@ We got 5 types of analytics:
   | ---------------------------- | ------------------------------- | -------------------------------------------- | ------------------------------------------------ | -------------------------- |
   | Data sources<br>Data storage | Event Hubs<br>IOT Hub<br> Kafka | Stream analytics<br>Storm<br>Spark Streaming | SQL Data Warehouse<br>Spark SQL<br>HBase<br>Hive | Analytics, Power BI, Excel |
 
+## 
+
 ## Relational Data (25-30%)
 
 ### Relational DB Services in Azure:
@@ -315,3 +317,147 @@ We got 5 types of analytics:
   - Most vendors are not 100% compatible with the standard
   
   - SQL Server uses T-SQL, Oracle uses PL/SQL, MySQL uses SQL/PSM, PostgreSQL uses PL/pgSQL
+
+
+
+
+
+## Non-Relational Database Concepts (25-30%)
+
+### What is Non-Relational Database?
+
+- Is any database that is not based on tables, rows and columns
+
+- Often, the way the data is stored better supports the application´s use
+
+
+
+### Non-Relational Data Types
+
+- Document or JSON document
+  
+  - Javascript object notation
+
+- Column-Family Data
+  
+  - Similar to table structure but it stores the ID field and another field for nested data 
+  
+  - It is like a nested tables system
+  
+  - Used in Cassandra database (invented by Facebook)
+
+- Key-Value Data
+  
+  - Used for cache / Redis and similar to a hash-table
+  
+  - Not mean to be searchable
+  
+  - This is how Azure table storage works
+
+- Graph Data
+  
+  - Graph database deals with nodes and relationships
+
+- Time Series Data
+  
+  - Data is really optimized around timestamps (like IOT data)
+
+- Object Data / File storage / Blob storage
+  
+  - Has a path, blob and metadata fields
+
+- Azure Search document
+  
+  - Has an ID, and search-document (json) field
+  
+  - Searching natural language recognition, query scoring, point system relevance
+
+
+
+### Choose a Database
+
+- Benefits of Relational Database
+  
+  - Normalization
+  
+  - Data relationships, data integrity, constraints and fixed schema
+  
+  - Established products  for decades
+  
+  - BI tools like Power BI
+
+- Benefits of NoSQL Databases
+  
+  - Optimized for specific data types
+  
+  - Can be designed for performance at internet scales
+  
+  - Might not require massive hardware, reduced expense
+  
+  - Open Source
+
+
+
+### Non-Relational DB Services in Azure:
+
+- Cosmos DB
+  
+  - Enterprise-grade non-relational database
+  
+  - Supports many data models: graph, document, table, column-family
+  
+  - Compatible with established APIs (Cassandra, MongoDB, Gremlin, etc)
+  
+  - Select the data consistency you need
+  
+  - Easy to scale worldwide
+  
+  - Sub-10ms latency
+  
+  - SLA for throughput, latency, availability and consistency
+
+- Table Storage
+  
+  - Azure Storage account
+  
+  - 5PB maximum limit
+  
+  - $0.045 per GB - cheapest data storage option in Azure
+  
+  - Plus pay for operations
+  
+  - SLA shockingly poor (10 seconds for a query)
+
+- Blob Storage
+  
+  - Azure Storage account
+  
+  - 5 PB maximum limit
+  
+  - $0.0208 per GB - cheapest data storage option
+  
+  - Supports premium, hot, cool, archive access tiers
+  
+  - Supports "reserved capacity"
+  
+  - Supports blob index
+  
+  - Plus pay for operations
+  
+  - SLA shockingly poor (2 seconds per MB)
+
+- File Storage
+  
+  - Azure Storage account
+  
+  - 5 PB maximum limit
+  
+  - $0.06 per GB - cheapest data storage option
+  
+  - Supports standard and premium options
+  
+  - SLA shockingly poor (2 seconds per MB)
+
+
+
+
