@@ -20,11 +20,17 @@
 
 ### Data Workloads
 
-1. Batch Data
-   Static data like CSV, JSON, XML, text files, Apache Parquet files, blob files, database in another location (SQL Server, Oracle, ..).
+1. **Batch Data**
+   Static data like CSV, JSON (row-based), XML, text files, Apache Parquet files (Column-based),  blob files, database in another location (SQL Server, Oracle, ..).
 
-2. Stream Data
+2. **Stream Data**
    Data always generating that never has a beginning and never has an end. Examples: Sensor data, Event hub, IoT Hub, Log processing, Live video (Netflix, YouTube) 
+
+
+
+<img src="https://www.upsolver.com/wp-content/uploads/2020/05/Screen-Shot-2020-05-26-at-17.52.58.png" title="" alt="" width="479">
+
+
 
 ### Characteristics of Relational Data
 
@@ -460,4 +466,58 @@ We got 5 types of analytics:
 
 
 
+### Managing Non-Relational Databases:
 
+- Creation Azure Cosmos Account (Provisioning)
+  
+  - Can create a maximum of 50 Azure Cosmos accounts under an Azure Subscription
+  
+  - Choose Azure Cosmos DB Account in Azure Portal
+  
+  - Requires a Subscription, Resource Group and Storage Account first
+  
+  - Requires a Instance Details: Account Name (Server), an API (Core SQL) and Location (region)
+  
+  -  Available APIS / Database Model (choose one)
+    
+    - Core SQL: documentDB (JSON data)
+    
+    - Azure Cosmos DB for MongoDB API
+    
+    - Cassandra
+    
+    - Azure Table
+    
+    - Gremlin (graph)
+  
+  - Can´t have multiple database models in the same DB Account.
+  
+  - Choose Account Type: Production / Non-Production
+  
+  - Choose Geo-Redundancy
+  
+  - Choose Multi-Region Writes
+  
+  - Choose Networking / Connectivity method
+    
+    - All networks
+    
+    - Public endpoint
+    
+    - Private endpoint
+  
+  - Encrypted by default (Service-managed key)
+  
+  - Specify tags required
+  
+  <img src="https://docs.microsoft.com/en-us/azure/includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png" title="" alt="The new account page for Azure Cosmos DB" width="590">
+
+- Query Cosmos DB
+  
+  - DB Account -> Database -> Container (table/collection/graph) -> Items
+    
+    <img src="https://docs.microsoft.com/en-us/azure/cosmos-db/media/account-databases-containers-items/hierarchy.png" title="" alt="Hierarchy of an Azure Cosmos account" width="227">
+    
+    <img title="" src="https://docs.microsoft.com/en-us/azure/cosmos-db/media/account-databases-containers-items/cosmos-entities.png" alt="Azure Cosmos account entities" width="692">
+  
+  - Compatible wi
