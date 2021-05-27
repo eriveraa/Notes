@@ -6,6 +6,10 @@
 
 
 
+**Scott Duffy Udemy Course - DP-900 Azure Data Fundamentals Exam Prep In One Day**
+
+[DP-900 Azure Data Fundamentals Exam Prep In One Day | Udemy](https://www.udemy.com/course/dp900-azure/?couponCode=MAY2021)
+
 ## Skills measured
 
 - The content of this exam was updated on April 23, 2021. Please download the exam skills outline below to see what changed.
@@ -181,6 +185,10 @@ We got 5 types of analytics:
   - 5GB to 4TB storage
   
   - Starting at $5 per month
+  
+  - By default, you don´t have public access. It requires the firewall configured to allow anyone.
+  
+  - Supports DTUs and vCore purchasing models
   
   - **Types of databases**
     
@@ -438,7 +446,7 @@ We got 5 types of analytics:
   
   - $0.045 per GB - cheapest data storage option in Azure
   
-  - Plus pay for operations
+  - Plus pay for operations (*We charge $0.00036 per 10,000 transactions for tables. Any type of operation against the storage is counted as a transaction, including reads, writes, and deletes*.)
   
   - Can have many tables (similar to a relational database)
   
@@ -450,13 +458,15 @@ We got 5 types of analytics:
 
 - Blob Storage
   
-  - Azure Storage account
+  - Requires Azure Storage account
     
     ![Diagram showing the relationship between a storage account, containers, and blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/media/storage-blobs-introduction/blob1.png)
   
   - 5 PB maximum limit
   
   - $0.0208 per GB - cheapest data storage option
+  
+  - Allows to serve images, documents, video, audio, and any kind of file
   
   - Supports premium, hot, cool, archive access tiers
   
@@ -468,13 +478,19 @@ We got 5 types of analytics:
   
   - Plus pay for operations
   
+  - Is the **<u>absolute cheapest way </u>**to store data in Azure.
+  
   - SLA shockingly poor (2 seconds per MB)
 
 - File Storage
   
-  - Azure Storage account
+  - Requires Azure Storage account
+    
+    <img src="https://docs.microsoft.com/en-us/learn/wwl-data-ai/explore-non-relational-data-offerings-azure/media/4-file-shares.png" title="" alt="Image showing the relationships between a storage account, file shares, applications using the file shares, and Azure Active Directory Domain Services" width="375">
   
   - 5 PB maximum limit
+  
+  - File shares on Azure Storage Account
   
   - $0.06 per GB - cheapest data storage option
   
@@ -498,13 +514,13 @@ We got 5 types of analytics:
   
   -  Available APIS / Database Model (choose one)
     
-    - Core SQL: documentDB (JSON data)
+    - Core SQL Api: documentDB (JSON data). For new applications use this one.
     
-    - Azure Cosmos DB for MongoDB API
+    - MongoDB API
     
-    - Cassandra
+    - Cassandra Api
     
-    - Azure Table
+    - Azure Table API
     
     - Gremlin (graph)
   
@@ -536,11 +552,11 @@ We got 5 types of analytics:
     
     ![CosmosTech_3](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/8d036cf9-df49-45d3-b540-00f18c4f5c31.png)
     
-    ![Introduction to NoSQL in Cosmos DB](https://novacontext.com/images/d/d52d335706b7fe2b07676693368945e4.jpg)
+    <img src="https://novacontext.com/images/d/d52d335706b7fe2b07676693368945e4.jpg" title="" alt="Introduction to NoSQL in Cosmos DB" width="473">
   
   - Horizontal Partitioning
     
-    ![Azure Cosmos DB - Deep Dive | DotNetCurry](https://www.dotnetcurry.com/images/azure/cosmos-db/logical-parition-by-partition-key.png)
+    <img title="" src="https://www.dotnetcurry.com/images/azure/cosmos-db/logical-parition-by-partition-key.png" alt="Azure Cosmos DB - Deep Dive | DotNetCurry" width="514">
 
 - Use ARM Templates to manage Cosmos DB (Infrastructure as Code)
   
@@ -554,7 +570,7 @@ We got 5 types of analytics:
 
 - Cosmos DB Security
   
-  - Cosmos DB Keys for Read and Write. You can regenerate them if compromised.
+  - Cosmos DB Keys <u>(Access Keys) </u>for Read and Write. You can regenerate them if compromised.
 
 - Cosmos DB Geo-Replication
   
@@ -668,13 +684,13 @@ We got 5 types of analytics:
 
 - **Modern Data Warehouse**
   
-  ![Modern Data Warehouse with Azure – cuteprogramming](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/media/modern-data-warehouse.png)
+  <img src="https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/media/modern-data-warehouse.png" title="" alt="Modern Data Warehouse with Azure – cuteprogramming" width="560">
   
   - **Data sources**
     
     - All data comes from somewhere else
     
-    - One or more data sources, structured (databases) or unstructured (csv, json, logs)
+    - One or more data sources, **structured **(databases) or **unstructured **(csv, json, logs)
   
   - **INGEST**
     
@@ -700,27 +716,153 @@ We got 5 types of analytics:
     
     - Databricks allows you to manipulate data at large scales (big data, streaming and machine learning). It takes data from Azure Data Lake, modify/process and store it in another data source like Azure Synapse Analytics.
       
-      ![¿Qué es Azure Databricks?](https://docs.microsoft.com/es-es/azure/databricks/scenarios/media/what-is-azure-databricks/azure-databricks-overview.png)
+      <img src="https://docs.microsoft.com/es-es/azure/databricks/scenarios/media/what-is-azure-databricks/azure-databricks-overview.png" title="" alt="¿Qué es Azure Databricks?" width="464">
   
   - **MODEL AND SERVE**
     
-    - Azure Synapse Analytics:
+    - **Azure Synapse Analytics**: fast, flexible and trusted cloud data warehouse that lets you scale, compute, and store elastically and independently, with a massive parallel processing architecture. <u>Data is optimized for read-only queries</u>. It´s a data warehouse.
+    
+    - **Azure Analysis Services**: an enterprise grade analytics as a service that lets you govern, deploy, test and deliver your BI solution. Data is optimized for complex queries with cubes and dimensions.
+    
+    - **Power BI**: a suite of BI tools that make easier for users to look at data, analyze it, and create reports / dashboards.
       
-      <img src="https://docs.microsoft.com/en-us/learn/wwl-data-ai/explore-data-storage-processing-azure/media/2-synapse.png" title="" alt="Image showing the elements of Azure Synapse Analytics" width="363">
+      - Can publish those reports to the organization and consume on the web or mobile devices.
+
+
+
+
+
+### Data ingestion and processing on Azure
+
+#### Data Engineer (What this exam is all about)
+
+Azure data engineers are responsible for data-related implementation tasks that include:
+
+- provisioning data storage services,
+
+- ingesting streaming and batch data,
+
+- transforming data,
+
+- implementing security and data-retention policies,
+
+- identifying performance bottlenecks and accessing external data sources
+
+
+
+#### Azure Data Factory
+
+<img title="" src="https://i2.wp.com/www.jamesserra.com/wp-content/uploads/2018/12/dataflows.png?w=949&ssl=1" alt="Azure Data Factory Data Flow | LaptrinhX" width="526">
+
+- Brings data from external sources ==> apply transformations ==> send to end data store
+
+- Similar to SQL Server Integration Services (SSIS)
+
+- Features
+  
+  - Orchestration platform - data workflows from A to B
+  
+  - Data transformation
+  
+  - Create and schedule jobs
+  
+  - Cloud version of SSIS 
+  
+  - Supports existing SSIS packages
+
+- Activities (actions to perform on data)
+  
+  - Data movement
+  
+  - Data transformation
+  
+  - control
+
+- Pipelines
+  
+  - A logical grouping of activities to perform some task.
+  
+  - A data factory can contain multiple pipelines
+  
+  - Can perform their tasks sequentially or in parallel.
+  
+  - Pipeline Run (instance of a pipeline execution)
+  
+  - Can be run manually or started using a trigger
+  
+  - Trigger (event that causes a pipeline to run)
     
-    - sdfsdf
+    - Scheduled trigger
     
-    - 
+    - Tumbling window
+      
+      - You set it up to run at a predetermined interval
+      
+      - Can be set to run "in the past"
+      
+      - Good for when the pipeline is designed to process data by the time period specified.
+      
+      - Non-overlapping
+    
+    - Event-based
 
-- asdsda
-
-- sdsds
 
 
+### Data Visualization
 
+This is how you view the data within your databases / reporting function
 
+#### Types of Reports
 
+- **Paginated Reports**
+  
+  - Designed to be printed and shared
+  
+  - Formatted to fit well on page
+  
+  - Contains all the data, even if it spans multiple pages: Invoice, Sales details report, etc.
+  
+  - **PowerBI Report Builder** creates paginated reports. (Standalone tool separated from Power BI)
+  
+  - Reports get published to **Power BI Service**.
 
+- **Interactive Reports**
+  
+  - Reports designed to be viewed on screen
+  
+  - Can click for more details, drill-down on the data ---- "interactive" / "hover" logic
+  
+  - Very visual, not a dump of data rows
+  
+  - Can change design / layout based on user action
+  
+  - Use one or many charts
+  
+  - Served by Power BI Server (installed on-premises) and part of Power Bi Premium
+
+- **Dashboards**
+  
+  - Typically a mixture of chart types on a single page
+  
+  - All the relevant data, at a glance
+  
+  - Can go to individual reports
+  
+  - Helps identify anomalies visually
+
+#### Power BI Content Workflow
+
+Typical workflow in Power BI
+
+- Connect to the data source
+
+- Pull what you need into in-memory data model
+
+- Edit, transform the data as you require
+
+- Build reports using **<u>Power BI Desktop</u>**
+
+- Share the report
 
 
 
