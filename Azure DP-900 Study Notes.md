@@ -28,7 +28,7 @@
 
 
 
-<img src="https://www.upsolver.com/wp-content/uploads/2020/05/Screen-Shot-2020-05-26-at-17.52.58.png" title="" alt="" width="479">
+<img title="" src="https://www.upsolver.com/wp-content/uploads/2020/05/Screen-Shot-2020-05-26-at-17.52.58.png" alt="" width="404">
 
 
 
@@ -356,9 +356,13 @@ We got 5 types of analytics:
   
   - Used for cache / Redis and similar to a hash-table
   
-  - Not mean to be searchable
+  - Not mean to be searchable (difficult to filter and sort on non-key data)
   
-  - This is how Azure table storage works
+  - This is how **Azure Tables** storage works
+    
+    <img title="" src="https://docs.microsoft.com/en-us/learn/wwl-data-ai/explore-non-relational-data-offerings-azure/media/2-row-structure.png" alt="Image showing the structure of rows in Azure Table Storage" width="296">
+    
+    
 
 - Graph Data
   
@@ -424,7 +428,11 @@ We got 5 types of analytics:
 
 - Table Storage
   
-  - Azure Storage account
+  - Requires an Azure Storage account
+  
+  - Its a key-value storage and semi-structured data, flexible data schema, JSON serialized
+  
+  - Now part of Azure Cosmos DB (api)
   
   - 5PB maximum limit
   
@@ -432,11 +440,19 @@ We got 5 types of analytics:
   
   - Plus pay for operations
   
+  - Can have many tables (similar to a relational database)
+  
   - SLA shockingly poor (10 seconds for a query)
+    
+    <img src="https://docs.microsoft.com/en-us/learn/wwl-data-ai/explore-non-relational-data-offerings-azure/media/2-row-structure.png" title="" alt="Image showing the structure of rows in Azure Table Storage" width="261">
+    
+    ![Image of the Overview page for the storage account in the Azure portal. The user has selected Tables](https://docs.microsoft.com/en-us/learn/wwl-data-ai/explore-non-relational-data-offerings-azure/media/2-tables.png)
 
 - Blob Storage
   
   - Azure Storage account
+    
+    ![Diagram showing the relationship between a storage account, containers, and blobs](https://docs.microsoft.com/en-us/azure/storage/blobs/media/storage-blobs-introduction/blob1.png)
   
   - 5 PB maximum limit
   
@@ -447,6 +463,8 @@ We got 5 types of analytics:
   - Supports "reserved capacity"
   
   - Supports blob index
+  
+  - Container organizes a set of blobs (similar to a directory in a file system)
   
   - Plus pay for operations
   
@@ -510,14 +528,240 @@ We got 5 types of analytics:
   
   - Specify tags required
   
-  <img src="https://docs.microsoft.com/en-us/azure/includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png" title="" alt="The new account page for Azure Cosmos DB" width="590">
+  <img title="" src="https://docs.microsoft.com/en-us/azure/includes/media/cosmos-db-create-dbaccount/azure-cosmos-db-create-new-account-detail.png" alt="The new account page for Azure Cosmos DB" width="720">
 
 - Query Cosmos DB
   
   - DB Account -> Database -> Container (table/collection/graph) -> Items
     
-    <img src="https://docs.microsoft.com/en-us/azure/cosmos-db/media/account-databases-containers-items/hierarchy.png" title="" alt="Hierarchy of an Azure Cosmos account" width="227">
+    ![CosmosTech_3](https://azurecomcdn.azureedge.net/mediahandler/acomblog/media/Default/blog/8d036cf9-df49-45d3-b540-00f18c4f5c31.png)
     
-    <img title="" src="https://docs.microsoft.com/en-us/azure/cosmos-db/media/account-databases-containers-items/cosmos-entities.png" alt="Azure Cosmos account entities" width="692">
+    ![Introduction to NoSQL in Cosmos DB](https://novacontext.com/images/d/d52d335706b7fe2b07676693368945e4.jpg)
   
-  - Compatible wi
+  - Horizontal Partitioning
+    
+    ![Azure Cosmos DB - Deep Dive | DotNetCurry](https://www.dotnetcurry.com/images/azure/cosmos-db/logical-parition-by-partition-key.png)
+
+- Use ARM Templates to manage Cosmos DB (Infrastructure as Code)
+  
+  - In Resource Group / Deployments, you can see the Deployment of the Cosmos DB
+    
+    - Can see the Cosmos DB Account deployment template and database provisioned
+  
+  - In Azure Cosmos DB account
+    
+    - Select Export template to see all Db templates generated (database, containers, etc.)
+
+- Cosmos DB Security
+  
+  - Cosmos DB Keys for Read and Write. You can regenerate them if compromised.
+
+- Cosmos DB Geo-Replication
+  
+  - Can create many Read Regions by just clicking on map. It will replicate the DB in those regions and keep them in sync with the Write Database.
+  
+  - Every replicated database costs!!!
+  
+  - Can also have multi-region writes
+  
+  - Big powerful advantage for going GLOBAL!
+
+- 
+
+
+
+## Data Analytics (25-30%)
+
+### Analytics Workloads
+
+- **OLTP - Online Transaction Processing**
+  
+  - (As a place to store business transactions as they occur)
+  
+  - That´s your data, the database that is behind your business system.
+  
+  - Captures the interaction / transactions of the business
+  
+  - Is the backend database of your systems
+  
+  - Existing rows can be updated
+  
+  - Data can be retrieved by SQL queries
+  
+  - Optimized for general use
+  
+  - Traits / Attributes
+    
+    - Database normalization, schema enforced, data integrity
+    
+    - Heavy writes, moderate reads, updateable
+    
+    - Data size MBs to TBs
+  
+  - Azure OLTP:
+    
+    - Azure SQL Database, SQL Instance, SQL Server in a VM
+    
+    - Azure Database for MySQL / PostgreSQL
+
+- **OLAP - Online Analytics Processing**
+  
+  - (As a place to hold data for complex analysis)
+  
+  - Pre-process your data so you can run some deep insights into it
+  
+  - Motivations
+    
+    - Data stored in transactional db can change at any time, and was not designed for complex analysis
+    
+    - Running complex reports can slow down a transactional database
+    
+    - Take time to prepare data for analysis
+  
+  - Traits / Attributes
+    
+    - No locking and no updates
+    
+    - Heavy reads, read-only
+    
+    - Multi-dimensional indexing
+    
+    - Data size GBs
+  
+  - Azure OLAP
+    
+    - SQL Server with Columnstore indexes
+    
+    - Azure Analysis Services
+    
+    - SQL Server Analysis Services
+    
+    - 
+
+- **Data Warehouse**
+  
+  - (As a centralized repository for data from different sources - data warehouse)
+  
+  - Collects data from multiple sources and put it one database you can run reports against it
+  
+  - Current and historical data used for reporting and global analysis
+  
+  - Can rename or reformat columns to make it easier for users to create reports
+  
+  - Users can run reports without affecting day to day business data systems
+  
+  - Azure Data Warehousing
+    
+    - Symmetric Multiprocessing (SMP)
+      
+      - Azure SQL Database
+      
+      - SQL Server in a VM
+    
+    - Massively Parallel Processing (MPP)
+      
+      - Azure Synapse Analytics (SQL DW)
+      
+      - Apache Hive on HDInsight
+      
+      - Interactive Query (Hive LLAP) on HDInsight
+
+- **Modern Data Warehouse**
+  
+  ![Modern Data Warehouse with Azure – cuteprogramming](https://docs.microsoft.com/en-us/azure/architecture/solution-ideas/media/modern-data-warehouse.png)
+  
+  - **Data sources**
+    
+    - All data comes from somewhere else
+    
+    - One or more data sources, structured (databases) or unstructured (csv, json, logs)
+  
+  - **INGEST**
+    
+    - **Azure Data Factory**: Hybrid data integration service that allows to create, schedule and orchestrate ETL/ELT workflows
+      
+      <img src="https://docs.microsoft.com/en-us/learn/wwl-data-ai/examine-components-of-modern-data-warehouse/media/3-data-factory.png" title="" alt="Screenshot of the Azure Data Factory design window, showing an example pipeline" width="502">
+    
+    - Moves the data from outside of Azure to inside of Azure
+      
+      <img src="https://docs.microsoft.com/en-us/learn/wwl-data-ai/examine-components-of-modern-data-warehouse/media/3-data-lake.png" title="" alt="Graphic showing data ingested by Azure Data Factory being sent to Azure Data Lake" width="394">
+  
+  - **STORE**
+    
+    - **Azure Blob Storage**: massively scalable object storage for any type of unstructured data
+    
+    - **Azure Data Lake**: type of blob storage designed to handle even larger amounts of data. 
+    
+    - Unprocessed data is stored here
+  
+  - **PREP AND TRAIN**
+    
+    - **Azure Databricks**: fast, easy and collaborative Apache Spark-based analytics platform.
+    
+    - Databricks allows you to manipulate data at large scales (big data, streaming and machine learning). It takes data from Azure Data Lake, modify/process and store it in another data source like Azure Synapse Analytics.
+      
+      ![¿Qué es Azure Databricks?](https://docs.microsoft.com/es-es/azure/databricks/scenarios/media/what-is-azure-databricks/azure-databricks-overview.png)
+  
+  - **MODEL AND SERVE**
+    
+    - Azure Synapse Analytics:
+      
+      <img src="https://docs.microsoft.com/en-us/learn/wwl-data-ai/explore-data-storage-processing-azure/media/2-synapse.png" title="" alt="Image showing the elements of Azure Synapse Analytics" width="363">
+    
+    - sdfsdf
+    
+    - 
+
+- asdsda
+
+- sdsds
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
